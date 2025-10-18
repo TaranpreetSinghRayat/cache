@@ -13,6 +13,7 @@ A comprehensive, flexible PHP forms library for Laravel and Core PHP with Bootst
 - 📦 **Core PHP Compatible** - Works standalone without any framework
 - 🎯 **Customizable** - Custom attributes, classes, IDs, and validation rules
 - 📱 **Responsive** - Mobile-friendly form rendering
+- 🏷️ **Shortcode System** - Create reusable forms for forums, CMS, and content platforms with callbacks
 
 ## Installation
 
@@ -271,6 +272,47 @@ $field->attributes($attrs)       // Add HTML attributes
 $field->addClass($class)         // Add CSS class
 $field->id($id)                  // Set element ID
 ```
+
+## Shortcodes (Forums & CMS)
+
+Create reusable forms that can be embedded in forum posts and CMS content using simple shortcode syntax:
+
+```php
+use Tweekersnut\FormsLib\Shortcodes\FormShortcode;
+
+// Create and configure form
+$form = new FormBuilder('contact_form', 'bootstrap');
+$form->field((new TextField('name'))->label('Name')->required());
+$form->field((new EmailField('email'))->label('Email')->required());
+
+// Create shortcode
+$shortcode = new FormShortcode($form);
+
+// Add success callback
+$shortcode->onSuccess(function ($data, $shortcode) {
+    // Save to database, send email, etc.
+    return ['success' => true];
+});
+
+// Register shortcode
+$shortcode->registerShortcode('contact_form');
+```
+
+Use in content:
+```
+[contact_form]
+[contact_form wrapper="custom-class"]
+```
+
+See `SHORTCODES_GUIDE.md` for complete documentation and examples.
+
+## Documentation
+
+- **[QUICKSTART.md](QUICKSTART.md)** - 5-minute quick start guide
+- **[INTEGRATION_GUIDE.md](INTEGRATION_GUIDE.md)** - Detailed integration instructions for Core PHP and Laravel
+- **[API_REFERENCE.md](API_REFERENCE.md)** - Complete API reference
+- **[SHORTCODES_GUIDE.md](SHORTCODES_GUIDE.md)** - Shortcode system documentation
+- **[examples/](examples/)** - Working examples for all features
 
 ## License
 
