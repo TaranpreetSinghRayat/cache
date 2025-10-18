@@ -74,7 +74,7 @@ class FormBuilder
         $this->values = $values;
         foreach ($this->fields as $name => $field) {
             if (isset($values[$name])) {
-                $field->setValue($values[$name]);
+                $field->value($values[$name]);
             }
         }
         return $this;
