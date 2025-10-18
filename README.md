@@ -18,7 +18,7 @@ A comprehensive, flexible PHP forms library for Laravel and Core PHP with Bootst
 ## Installation
 
 ```bash
-composer require augment/forms-lib
+composer require tweekersnut/forms-lib
 ```
 
 ### Laravel Setup
