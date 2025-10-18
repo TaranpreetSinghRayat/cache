@@ -166,6 +166,15 @@ class FormShortcode
     }
 
     /**
+     * Check if form was submitted
+     */
+    protected function isFormSubmitted(): bool
+    {
+        return isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST' &&
+               isset($_POST['form_name']) && $_POST['form_name'] === $this->form->getName();
+    }
+
+    /**
      * Get form
      */
     public function getForm(): FormBuilder
@@ -180,14 +189,14 @@ class FormShortcode
     {
         ShortcodeManager::register($name, function (array $attributes) {
             // Handle form submission
-            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_name']) && $_POST['form_name'] === $this->form->getName()) {
+            if ($this->isFormSubmitted()) {
                 $result = $this->handle($_POST);
 
                 if ($result['success']) {
                     return '<div class="alert alert-success">' . htmlspecialchars($result['message']) . '</div>' . $this->render($attributes);
                 } else {
                     $errors = '';
-                    foreach ($result['errors'] as $field => $fieldErrors) {
+                    foreach ($result['errors'] as $fieldErrors) {
                         foreach ($fieldErrors as $error) {
                             $errors .= '<li>' . htmlspecialchars($error) . '</li>';
                         }
