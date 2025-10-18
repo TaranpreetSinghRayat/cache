@@ -1,0 +1,16 @@
+# Auto detect text files and normalize line endings to LF
+* text=auto
+
+# Exclude files from distribution
+.gitattributes export-ignore
+.gitignore export-ignore
+.github export-ignore
+tests/ export-ignore
+phpunit.xml export-ignore
+LIBRARY_SUMMARY.md export-ignore
+test-form.php export-ignore
+test-examples.php export-ignore
+
+# Include examples in distribution
+examples/ export-include
+
