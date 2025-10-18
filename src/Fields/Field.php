@@ -138,6 +138,14 @@ abstract class Field
     }
 
     /**
+     * Get input type (for rendering)
+     */
+    public function getInputType(): string
+    {
+        return $this->type;
+    }
+
+    /**
      * Get field label
      */
     public function getLabel(): string
