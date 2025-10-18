@@ -1,0 +1,27 @@
+{
+    "name": "tweekersnut/forms-lib",
+    "description": "A comprehensive PHP forms library for Laravel and Core PHP with Bootstrap/Tailwind support, AJAX handling, and validation",
+    "require": {
+        "php": "^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "laravel/framework": "^9.0|^10.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tweekersnut"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Tweekersnut\\FormsLib\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tweekersnut\\FormsLib\\Tests\\": "tests/"
+        }
+    }
+}
