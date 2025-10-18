@@ -18,7 +18,7 @@ A comprehensive, flexible PHP forms library for Laravel and Core PHP with Bootst
 ## Installation
 
 ```bash
-composer require augment/forms-lib
+composer require tweekersnut/forms-lib
 ```
 
 ### Laravel Setup
@@ -28,12 +28,12 @@ Add to your `config/app.php` providers:
 ```php
 'providers' => [
     // ...
-    Augment\FormsLib\Laravel\FormsLibServiceProvider::class,
+    Tweekersnut\FormsLib\Laravel\FormsLibServiceProvider::class,
 ],
 
 'aliases' => [
     // ...
-    'Forms' => Augment\FormsLib\Laravel\Facades\FormsFacade::class,
+    'Forms' => Tweekersnut\FormsLib\Laravel\Facades\FormsFacade::class,
 ]
 ```
 
@@ -48,10 +48,10 @@ php artisan vendor:publish --tag=forms-lib-config
 ### Core PHP
 
 ```php
-use Augment\FormsLib\Core\FormBuilder;
-use Augment\FormsLib\Fields\TextField;
-use Augment\FormsLib\Fields\EmailField;
-use Augment\FormsLib\Fields\SubmitField;
+use Tweekersnut\FormsLib\Core\FormBuilder;
+use Tweekersnut\FormsLib\Fields\TextField;
+use Tweekersnut\FormsLib\Fields\EmailField;
+use Tweekersnut\FormsLib\Fields\SubmitField;
 
 $form = new FormBuilder('contact_form', 'bootstrap');
 $form->method('POST')->action('/submit');
@@ -77,7 +77,7 @@ echo $form->render();
 ### Laravel
 
 ```php
-use Augment\FormsLib\Laravel\Facades\Forms;
+use Tweekersnut\FormsLib\Laravel\Facades\FormsFacade as Forms;
 
 $form = Forms::create('contact_form', 'bootstrap');
 $form->method('POST')->action('/submit');
@@ -144,7 +144,7 @@ $validator->registerRule('custom_rule', function($value, $param, $field) {
 ### PHP Backend
 
 ```php
-use Augment\FormsLib\AJAX\AjaxHandler;
+use Tweekersnut\FormsLib\AJAX\AjaxHandler;
 
 if (AjaxHandler::isAjaxRequest()) {
     $handler = new AjaxHandler($form);
