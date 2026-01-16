@@ -384,6 +384,15 @@ composer install --dev
 vendor/bin/phpunit
 ```
 
+## 🎥 Watch This Video
+
+Click the video below to watch it directly on YouTube:
+
+[![Watch the video](https://img.youtube.com/vi/6bPWtwIrqSg/0.jpg)](https://www.youtube.com/watch?v=6bPWtwIrqSg)
+
+👉 *Click the image to open the video*
+
+
 ---
 
 ## 📄 License
